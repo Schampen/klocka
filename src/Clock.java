@@ -19,6 +19,7 @@ public class Clock {
 
     public void timeTick() {
         minutes.increment();
+        updateDisplay();
     }
 
     public void setTime(int hour ,int minute) {
@@ -32,6 +33,6 @@ public class Clock {
     }
 
     private void updateDisplay() {
-        displayString = hours.getDisplayValue() + minutes.getDisplayValue();
+        displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
     }
 }
