@@ -33,6 +33,9 @@ public class Clock {
     }
 
     private void updateDisplay() {
+        if (minutes.getValue() == 60) {
+            hours.increment();
+        }
         displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
     }
 }
