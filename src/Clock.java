@@ -18,7 +18,12 @@ public class Clock {
     }
 
     public void timeTick() {
-        minutes.increment();
+        if (minutes.getValue() == 59) {
+            hours.increment();
+            minutes.increment();
+        } else {
+            minutes.increment();
+        }
         updateDisplay();
     }
 
@@ -33,9 +38,6 @@ public class Clock {
     }
 
     private void updateDisplay() {
-        if (minutes.getValue() == 60) {
-            hours.increment();
-        }
         displayString = hours.getDisplayValue() + ":" + minutes.getDisplayValue();
     }
 }
